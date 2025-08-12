@@ -8,14 +8,20 @@ public class ejercicio2 {
 
     public void openGeneralWindow(){
         String[] optionsMenu = {"Consultar Saldo","Recargar"};
-        int choose = JOptionPane.showOptionDialog(null,"¿Que necesitas hacer?","Recargas Chamo",JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,null,optionsMenu,optionsMenu[0]);
-        switch (choose){
-            case 0:
-                checkBalance();
-                break;
-            case 1:
-                rechargePhone();
-                break;
+        boolean flag = true;
+        while (flag){
+            int choose = JOptionPane.showOptionDialog(null,"¿Que necesitas hacer?","Recargas Chamo",JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,null,optionsMenu,optionsMenu[0]);
+            switch (choose){
+                case 0:
+                    checkBalance();
+                    break;
+                case 1:
+                    rechargePhone();
+                    break;
+                default:
+                    flag = false;
+                    break;
+            }
         }
     }
 
@@ -39,7 +45,7 @@ public class ejercicio2 {
     public void openBalanceWindow(){
         while (true){
             try {
-                this.balancePhone = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cual es tu saldo inicial?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE));
+                this.balancePhone = Double.parseDouble(JOptionPane.showInputDialog(null,"¿Cual es tu saldo inicial?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE));
                 return;
             } catch (NumberFormatException e){
                 showMessageWindow("Debes ingresar un monto valido");
@@ -53,7 +59,6 @@ public class ejercicio2 {
                 double rechargeValue = Double.parseDouble(JOptionPane.showInputDialog(null,"¿Cuanto quieres recargar?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE));
                 this.balancePhone = balancePhone + rechargeValue;
                 showMessageWindow("¡Recarga exitosa!\nNumero de celular: " + numberPhone + "\nOperador: " + operatorPhone + "\nRecargaste el monto de: " + rechargeValue + "$\nTu saldo actual es de: " + balancePhone + "$");
-                openGeneralWindow();
                 return;
             } catch (NumberFormatException e){
                 showMessageWindow("Monto Invalido");
@@ -63,7 +68,6 @@ public class ejercicio2 {
 
     public void checkBalance(){
         showMessageWindow("Tu saldo es de " + balancePhone + "$");
-        openGeneralWindow();
     }
 
     public void showMessageWindow(String text){
