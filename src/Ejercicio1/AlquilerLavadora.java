@@ -1,4 +1,4 @@
-package Ejercicio9;
+package Ejercicio1;
 import javax.swing.JOptionPane;
 
 public class AlquilerLavadora {
