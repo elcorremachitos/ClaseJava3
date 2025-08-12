@@ -48,9 +48,9 @@ public class ejercicio2 {
     public void rechargePhone(){
         while (true){
             try {
-                int rechargeValue = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuanto quieres recargar?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE));
-                this.balancePhone = balancePhone + rechargeValue;
-                JOptionPane.showMessageDialog(null,"¡Recarga exitosa!\nRecargaste el monto de: " + rechargeValue + "$\nTu saldo actual es de: " + balancePhone + "$");
+                float rechargeValue = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuanto quieres recargar?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE));
+                this.balancePhone = (int) (balancePhone + rechargeValue);
+                JOptionPane.showMessageDialog(null,"¡Recarga exitosa!\nNumero de celular: " + numberPhone + "\nOperador: " + operatorPhone + "\nRecargaste el monto de: " + rechargeValue + "$\nTu saldo actual es de: " + balancePhone + "$");
                 openGeneralWindow();
                 return;
             } catch (NumberFormatException e){
