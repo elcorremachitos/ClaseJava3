@@ -5,6 +5,7 @@ public class ejercicio2 {
     private String numberPhone;
     private String operatorPhone;
     private double balancePhone;
+    private final String appName = "Recargas Chamo";
 
     public void openGeneralWindow(){
         String[] optionsMenu = {"Consultar Saldo","Recargar"};
@@ -71,14 +72,14 @@ public class ejercicio2 {
     }
 
     public void showMessageWindow(String text){
-        JOptionPane.showMessageDialog(null,text,"Recargas Chamo",JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null,text,appName,JOptionPane.PLAIN_MESSAGE);
     }
 
     public String showInputWindow(String text){
-        return JOptionPane.showInputDialog(null,text,"Recargas Chamo",JOptionPane.PLAIN_MESSAGE);
+        return JOptionPane.showInputDialog(null,text,appName,JOptionPane.PLAIN_MESSAGE);
     }
 
     public int showOptionWindow(String text,String[] list){
-        return JOptionPane.showOptionDialog(null,text,"Recargas Chamo",JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,null,list,list[0]);
+        return JOptionPane.showOptionDialog(null,text,appName,JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE,null,list,list[0]);
     }
 }
