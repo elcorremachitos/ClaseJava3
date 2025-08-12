@@ -1,11 +1,10 @@
 package Ejercicio2;
 import javax.swing.JOptionPane;
-import java.util.ArrayList;
 
 public class ejercicio2 {
     private String numberPhone;
     private String operatorPhone;
-    private int balancePhone;
+    private double balancePhone;
 
     public void openGeneralWindow(){
         String[] optionsMenu = {"Consultar Saldo","Recargar"};
@@ -20,11 +19,14 @@ public class ejercicio2 {
         }
     }
 
-    public void openNumberWindow(){
-        this.numberPhone = JOptionPane.showInputDialog(null,"¿Cual es tu numero celular?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE);
-        if (numberPhone.length() < 10 || !numberPhone.matches("\\d+")){
-            JOptionPane.showMessageDialog(null,"Debes ingresar un numero valido");
-            openNumberWindow();
+    public void openNumberWindow() {
+        while (true) {
+            this.numberPhone = JOptionPane.showInputDialog(null, "¿Cual es tu numero celular?", "Recargas Chamo", JOptionPane.PLAIN_MESSAGE);
+            if (numberPhone.length() < 10 || !numberPhone.matches("\\d+")) {
+                showMessageWindow("Debes ingresar un numero valido");
+            } else {
+                return;
+            }
         }
     }
 
@@ -40,7 +42,7 @@ public class ejercicio2 {
                 this.balancePhone = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cual es tu saldo inicial?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE));
                 return;
             } catch (NumberFormatException e){
-                JOptionPane.showMessageDialog(null,"Monto invalido");
+                showMessageWindow("Debes ingresar un monto valido");
             }
         }
     }
@@ -48,20 +50,23 @@ public class ejercicio2 {
     public void rechargePhone(){
         while (true){
             try {
-                float rechargeValue = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuanto quieres recargar?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE));
-                this.balancePhone = (int) (balancePhone + rechargeValue);
-                JOptionPane.showMessageDialog(null,"¡Recarga exitosa!\nNumero de celular: " + numberPhone + "\nOperador: " + operatorPhone + "\nRecargaste el monto de: " + rechargeValue + "$\nTu saldo actual es de: " + balancePhone + "$");
+                double rechargeValue = Double.parseDouble(JOptionPane.showInputDialog(null,"¿Cuanto quieres recargar?","Recargas Chamo",JOptionPane.PLAIN_MESSAGE));
+                this.balancePhone = balancePhone + rechargeValue;
+                showMessageWindow("¡Recarga exitosa!\nNumero de celular: " + numberPhone + "\nOperador: " + operatorPhone + "\nRecargaste el monto de: " + rechargeValue + "$\nTu saldo actual es de: " + balancePhone + "$");
                 openGeneralWindow();
                 return;
             } catch (NumberFormatException e){
-                JOptionPane.showMessageDialog(null,"Monto invalido");
+                showMessageWindow("Monto Invalido");
             }
         }
     }
 
     public void checkBalance(){
-        JOptionPane.showMessageDialog(null,"Tu saldo es de " + balancePhone + "$");
+        showMessageWindow("Tu saldo es de " + balancePhone + "$");
         openGeneralWindow();
     }
 
+    public void showMessageWindow(String text){
+        JOptionPane.showMessageDialog(null,text,"Recargas Chamo",JOptionPane.PLAIN_MESSAGE);
+    }
 }
