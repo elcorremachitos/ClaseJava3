@@ -2,8 +2,8 @@ package Ejercicio2;
 
 public class Controller {
     private final String appName;
-    private final String[] phoneOperators = {"VzlaPhone", "ColPhone"};
-    private final String[] optionsMenu = {"Consultar Saldo", "Recargar", "Salir"};
+    private static final String[] phoneOperators = {"VzlaPhone", "ColPhone"};
+    private static final String[] optionsMenu = {"Consultar Saldo", "Recargar", "Salir"};
     private final Window visualWindow;
     private static final Verifications verf = new Verifications();
 
@@ -41,21 +41,21 @@ public class Controller {
     }
 
     public void rechargePhone(Phone phone){
-        double rechargeValue = verf.readValidDouble(visualWindow,"¿Cuanto quieres recargar?");
+        double rechargeValue = verf.askValidDouble(visualWindow,"¿Cuanto quieres recargar?");
         phone.setPhoneBalance(phone.getPhoneBalance()+rechargeValue);
         visualWindow.showMessageWindow("¡Recarga exitosa!\nNumero de celular: " + phone.getPhoneNumber() + "\nOperador: " + phone.getPhoneOperator() + "\nRecargaste el monto de: " + rechargeValue + "$\nTu saldo actual es de: " + phone.getPhoneBalance() + "$");
     }
 
     public String askNumber() {
-        return verf.readValidPhoneNumber(visualWindow,"¿Cual es tu numero celular?");
+        return verf.askValidPhoneNumber(visualWindow,"¿Cual es tu numero celular?");
     }
 
     public String askOperator(){
-        return verf.readValidOperator(visualWindow,phoneOperators,"¿Cual es tu operador?");
+        return verf.askValidOperator(visualWindow,phoneOperators,"¿Cual es tu operador?");
     }
 
     public double askBalance(){
-        return verf.readValidDouble(visualWindow,"¿Cuanto quieres recargar?");
+        return verf.askValidDouble(visualWindow,"¿Cuanto quieres recargar?");
     }
 
 }

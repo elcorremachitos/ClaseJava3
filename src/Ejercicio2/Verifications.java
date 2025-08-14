@@ -5,7 +5,7 @@ public class Verifications {
     private static final String error2 = "Debes escoger un operador";
     private static final String error3 = "Debes ingresar un numero valido (Minimo 10 numeros)";
 
-    public double readValidDouble(Window visualWindow,String text){
+    public double askValidDouble(Window visualWindow,String text){
         while (true){
             try {
                 return Double.parseDouble(visualWindow.showInputWindow(text));
@@ -15,7 +15,7 @@ public class Verifications {
         }
     }
 
-    public String readValidOperator(Window visualWindow,String[] list,String text){
+    public String askValidOperator(Window visualWindow,String[] list,String text){
         while (true){
             int operator = visualWindow.showOptionWindow(text,list);
             if (operator >= 0){
@@ -26,7 +26,7 @@ public class Verifications {
         }
     }
 
-    public String readValidPhoneNumber(Window visualWindow, String text) {
+    public String askValidPhoneNumber(Window visualWindow, String text) {
         while (true) {
             String numberPhone = visualWindow.showInputWindow(text);
             if (numberPhone == null || numberPhone.length() < 10 || !numberPhone.matches("\\d+")) {
