@@ -7,16 +7,11 @@ public class BenefitCalculator {
         this.user = user;
     }
 
-    public void calculateGender(){
-        int benefit = user.getGender().equals("Hombre") ? 120000 : 150000;
-        user.setBenefit(benefit);
+    public int calculateBenefitGender(){
+        return (user.getGender().equals("Hombre")) ? 120000 : 150000;
     }
 
-    public void calculateExtra(){
-        if (user.getAge() > 60) {
-            user.setExtra(40000);
-        } else {
-            user.setExtra(0);
-        }
+    public int calculateBenefitExtra(){
+        return (user.getAge() > 60) ? 40000 : 0;
     }
 }

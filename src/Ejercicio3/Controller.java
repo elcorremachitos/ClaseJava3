@@ -18,8 +18,8 @@ public class Controller {
         boolean sisben = askSisben();
         User user = new User(age,gender,sisben);
         this.benefitCalculator = new BenefitCalculator(user);
-        benefitCalculator.calculateGender();
-        benefitCalculator.calculateExtra();
+        user.setBenefit(benefitCalculator.calculateBenefitGender());
+        user.setExtra(benefitCalculator.calculateBenefitExtra());
         openMainWindow(user);
     }
 
@@ -35,7 +35,7 @@ public class Controller {
         while (true){
             try{
                 int age = Integer.parseInt(visualWindow.showInputWindow("¿Cual es la edad del usuario?"));
-                if (age > 0){
+                if (age >= 0){
                     return age;
                 } else {
                     visualWindow.showMessageWindow("¡Debes ingresar una edad mayor a 0!");
@@ -59,12 +59,12 @@ public class Controller {
 
     public String askGender(){
         while (true){
-            try{
-                int choose = visualWindow.showOptionWindow("¿Cual es tu genero?",optionsGender);
-                return (choose == 0) ? "Hombre" : "Mujer";
-            } catch (NumberFormatException e){
-                visualWindow.showMessageWindow("¡Debes ingresar una opcion validad!");
+            int choose = visualWindow.showOptionWindow("¿Cual es tu genero?",optionsGender);
+            if (choose == -1){
+                visualWindow.showMessageWindow("¡Debes ingresar una opcion valida!");
+                continue;
             }
+            return (choose == 0) ? "Hombre" : "Mujer";
         }
     }
 
