@@ -16,14 +16,14 @@ public class Controller {
         int age = askAge();
         String gender = askGender();
         boolean sisben = askSisben();
-        Users user = new Users(age,gender,sisben);
+        User user = new User(age,gender,sisben);
         this.benefitCalculator = new BenefitCalculator(user);
         benefitCalculator.calculateGender();
         benefitCalculator.calculateExtra();
         openMainWindow(user);
     }
 
-    public void openMainWindow(Users user){
+    public void openMainWindow(User user){
         if (user.isSisben()){
             visualWindow.showMessageWindow("Beneficio Base: " + user.getBenefit() + "$\nAdicional: " + user.getExtra() + "$\nTotal: " + (user.getBenefit()+user.getExtra()) + "$");
         } else {

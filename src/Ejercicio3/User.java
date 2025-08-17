@@ -1,13 +1,13 @@
 package Ejercicio3;
 
-public class Users {
+public class User {
     private int age;
     private String gender;
     private boolean sisben;
     private int benefit;
     private int extra;
 
-    public Users(int age, String gender, boolean sisben) {
+    public User(int age, String gender, boolean sisben) {
         this.age = age;
         this.gender = gender;
         this.sisben = sisben;

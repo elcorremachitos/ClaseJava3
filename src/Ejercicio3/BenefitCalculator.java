@@ -1,9 +1,9 @@
 package Ejercicio3;
 
 public class BenefitCalculator {
-    Users user;
+    User user;
 
-    public BenefitCalculator(Users user) {
+    public BenefitCalculator(User user) {
         this.user = user;
     }
 
