@@ -1,0 +1,55 @@
+package Ejercicio3;
+
+public class Users {
+    private int age;
+    private String gender;
+    private boolean sisben;
+    private int benefit;
+    private int extra;
+
+    public Users(int age, String gender, boolean sisben) {
+        this.age = age;
+        this.gender = gender;
+        this.sisben = sisben;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public boolean isSisben() {
+        return sisben;
+    }
+
+    public void setSisben(boolean sisben) {
+        this.sisben = sisben;
+    }
+
+    public int getBenefit() {
+        return benefit;
+    }
+
+    public void setBenefit(int benefit) {
+        this.benefit = benefit;
+    }
+
+    public int getExtra() {
+        return extra;
+    }
+
+    public void setExtra(int extra) {
+        this.extra = extra;
+    }
+}
