@@ -17,25 +17,14 @@ public class User {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getGender() {
         return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public boolean isSisben() {
         return sisben;
     }
 
-    public void setSisben(boolean sisben) {
-        this.sisben = sisben;
-    }
 
     public int getBenefit() {
         return benefit;
