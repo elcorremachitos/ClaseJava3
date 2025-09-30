@@ -20,7 +20,7 @@ public class Controller {
         openGeneralWindow(phone);
     }
 
-    public void openGeneralWindow(Phone phone){
+    private void openGeneralWindow(Phone phone){
         while (true){
             int choose = visualWindow.showOptionWindow("¿Que necesitas hacer?",optionsMenu);
             switch (choose){
@@ -36,25 +36,25 @@ public class Controller {
         }
     }
 
-    public void checkBalance(Phone phone){
+    private void checkBalance(Phone phone){
         visualWindow.showMessageWindow("Tu saldo es de " + phone.getPhoneBalance() + "$");
     }
 
-    public void rechargePhone(Phone phone){
+    private void rechargePhone(Phone phone){
         double rechargeValue = verf.askValidDouble(visualWindow,"¿Cuanto quieres recargar?");
         phone.setPhoneBalance(phone.getPhoneBalance()+rechargeValue);
         visualWindow.showMessageWindow("¡Recarga exitosa!\nNumero de celular: " + phone.getPhoneNumber() + "\nOperador: " + phone.getPhoneOperator() + "\nRecargaste el monto de: " + rechargeValue + "$\nTu saldo actual es de: " + phone.getPhoneBalance() + "$");
     }
 
-    public String askNumber() {
+    private String askNumber() {
         return verf.askValidPhoneNumber(visualWindow,"¿Cual es tu numero celular?");
     }
 
-    public String askOperator(){
+    private String askOperator(){
         return verf.askValidOperator(visualWindow,phoneOperators,"¿Cual es tu operador?");
     }
 
-    public double askBalance(){
+    private double askBalance(){
         return verf.askValidDouble(visualWindow,"¿Cuanto quieres recargar?");
     }
 

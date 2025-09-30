@@ -23,7 +23,7 @@ public class Controller {
         openMainWindow(user);
     }
 
-    public void openMainWindow(User user){
+    private void openMainWindow(User user){
         if (user.isSisben()){
             visualWindow.showMessageWindow("Beneficio Base: " + user.getBenefit() + "$\nAdicional: " + user.getExtra() + "$\nTotal: " + (user.getBenefit()+user.getExtra()) + "$");
         } else {
@@ -31,7 +31,7 @@ public class Controller {
         }
     }
 
-    public int askAge(){
+    private int askAge(){
         while (true){
             try{
                 int age = Integer.parseInt(visualWindow.showInputWindow("¿Cual es la edad del usuario?"));
@@ -46,7 +46,7 @@ public class Controller {
         }
     }
 
-    public boolean askSisben(){
+    private boolean askSisben(){
         while (true) {
             int choose = visualWindow.showOptionWindow("¿Pertenece al Sisben?",optionsSisben);
             if (choose == -1){
@@ -57,7 +57,7 @@ public class Controller {
         }
     }
 
-    public String askGender(){
+    private String askGender(){
         while (true){
             int choose = visualWindow.showOptionWindow("¿Cual es tu genero?",optionsGender);
             if (choose == -1){
